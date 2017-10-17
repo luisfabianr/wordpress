@@ -1,10 +1,6 @@
 
  <?php 
 
-/**
-* Template Name: Landing
-* Description: Used as a page template to show page contents, followed by a loop 
-*/
 
 //* Full Width
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
@@ -28,7 +24,7 @@ remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 <?php genesis_before_content(); ?>
 <div id="content" class="hfeed">
 <div class="wrapper">
-    <div class="sidebar" data-color="blue" >
+    <div class="sidebar-datos" data-color="blue" >
 
     <!--
 

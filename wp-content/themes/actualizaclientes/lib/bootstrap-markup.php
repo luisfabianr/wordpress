@@ -22,7 +22,7 @@ function bsg_add_markup_class( $attr, $context ) {
             'nav-primary'               => 'navbar navbar-default navbar-static-top',
             'nav-secondary'             => 'navbar navbar-inverse navbar-static-top',
             'site-header'               => 'container',
-            //'site-inner'                => 'container',
+            'site-inner'                => 'container',
             'site-footer'               => 'container',
             'content-sidebar-wrap'      => 'row',
             'content'                   => 'col-sm-9',

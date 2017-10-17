@@ -5,7 +5,7 @@
 }
 
 
-.sidebar{
+.sidebar-datos{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -122,7 +122,7 @@
 }
 
 
-.sidebar,
+.sidebar-datos,
 body > .navbar-collapse{
     .logo{
         padding: $navbar-padding-a;
@@ -235,7 +235,7 @@ body > .navbar-collapse{
     }
 }
 
-.sidebar,
+.sidebar-datos,
 .main-panel{
     overflow: auto;
     max-height: 100%;
