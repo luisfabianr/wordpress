@@ -3,6 +3,10 @@
  * functions.php
  *
  */
+//* Child theme (do not remove)
+define( 'CHILD_THEME_NAME', 'actualizaclientes' );
+define( 'CHILD_THEME_URL', 'https://www.actualizayremodela.com/' );
+define( 'CHILD_THEME_VERSION', '1.0.1' );
 
 /**
  * Include all php files in the /includes directory
@@ -15,38 +19,31 @@ function bsg_load_lib_files() {
     foreach ( glob( dirname( __FILE__ ) . '/lib/*.php' ) as $file ) { include $file; }
 }
 
-// CPT docentes **************************************************************************************************************************************
-function custom_post_type_landing() {
-    
-    $labels = array( 
-        'name'               => _x( 'Landing', 'general name' ),
-        'singular_name'      => _x( 'Landing', 'singular name' ),
-        'add_new'            => _x( 'Añadir nuevo', 'landing' ),
-        'add_new_item'       => __( 'Añadir nuevo landing' ),
-        'edit_item'          => __( 'Editar landing' ),
-        'new_item'           => __( 'Nuevo landing' ),
-        'all_items'          => __( 'Todos los landings' ),
-        'view_item'          => __( 'Ver landing' ),
-        'search_items'       => __( 'Buscar landing' ),
-        'not_found'          => __( 'No se encontraron landings' ),
-        'not_found_in_trash' => __( 'No se encontraron landings en la papalera' ),
-        'parent_item_colon'  => '',
-        'menu_name'          => 'Landings'
-    );
-    $args = array( 
-        'labels'        => $labels,
-        'public'        => true,
-        'menu_position' => 3,
-        'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'genesis-seo', 'genesis-layouts', 'custom-fields' ),      
-        'taxonomies'   => array( 'categories_landing' ), 
-        'has_archive'   => true,
-    );
-    register_post_type(__( 'landing' ), $args); 
+//* Register widget area
+add_action( 'widgets_init', 'footer_register_sidebar' );
+function footer_register_sidebar() {
+    genesis_register_sidebar( array(
+        'id' => 'sidebar-footer',
+        'name' => 'Footer Sidebar',
+        'description' => 'This sidebar displays footer in landing.'
+    ) );
 }
-add_action( 'init', 'custom_post_type_landing' );
 
-// Categorias
-add_action( 'init', 'build_taxonomies_landing', 0 );
-function build_taxonomies_landing() {
-    register_taxonomy( 'categories_landing', 'landing', array( 'hierarchical' => true, 'label' => 'Categorías', 'query_var' => true, 'rewrite' => true ) );
-}
+//* Support span
+function override_mce_options($initArray) 
+{
+  $opts = '*[*]';
+  $initArray['valid_elements'] = $opts;
+  $initArray['extended_valid_elements'] = $opts;
+  return $initArray;
+ }
+ add_filter('tiny_mce_before_init', 'override_mce_options'); 
+
+//* Front page
+ add_filter( 'pre_get_posts', 'my_get_posts' );
+function my_get_posts( $query ) {
+if ( is_home() && false == $query->query_vars['suppress_filters'] )
+$query->set( 'post_type', array(
+'post', 'page', 'landing' ) );
+    return $query;
+ }  

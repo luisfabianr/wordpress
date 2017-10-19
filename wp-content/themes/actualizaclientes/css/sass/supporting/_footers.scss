@@ -1,6 +1,7 @@
 .footer{    
-    background-color: #f2f2f2;;
+    background-color: $brand-primary;
     line-height: $line-height;
+    min-height: 60px;
     
     nav > ul{
         list-style: none;

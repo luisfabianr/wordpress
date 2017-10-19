@@ -10,41 +10,36 @@ $count = 0;
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="/">
-                    <img src="/wp-content/themes/actualizaclientes/img/logo-centro-corona.svg" alt="">
+                    <img src="/suscriptores/wp-content/themes/actualizaclientes/img/logo-centro-corona.svg" alt="">
                 </a>
             </div>          
         </div>
     </div>
     <div class="main-panel">
-        <div class="content-wrap">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="text-center pagination-centered">
-                        <?php 
-                            $id= get_the_id(); 
-                            $post = get_post($id); 
-                            $content = apply_filters('the_content', $post->post_content); 
-                            echo $content;  
-                            ?>
+        <div class="content-wrap vertical-center">
+            <div class="container-landing text-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="text-center pagination-centered">
+                            <?php 
+                                $id= get_the_id(); 
+                                $post = get_post($id); 
+                                $content = apply_filters('the_content', $post->post_content); 
+                                echo $content;  
+                                ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <footer class="footer">
             <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
+                <?php if (!dynamic_sidebar('Footer Sidebar')) : ?>
+                        <h4><?php _e("Footer Sidebar", 'genesis'); ?></h4>
+                        <div class="wrap">
+                            <p><?php _e("This sidebar displays footer in landing.", 'genesis'); ?></p>
+                        </div><!-- end .wrap -->
+                <?php endif; ?>
             </div>
         </footer>
 
