@@ -40,7 +40,7 @@
     
     .logo{
         padding: $navbar-padding-a;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        //border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         
         p{
             float: left;
@@ -126,7 +126,7 @@
 body > .navbar-collapse{
     .logo{
         padding: $navbar-padding-a;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        //border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         
         p{
             float: left;
@@ -223,7 +223,7 @@ body > .navbar-collapse{
     
     > .content-wrap{
         padding: 0 15px;
-        min-height: calc(100% - 60px);
+        min-height: calc(100% - 70px);
     }
     
     > .footer{

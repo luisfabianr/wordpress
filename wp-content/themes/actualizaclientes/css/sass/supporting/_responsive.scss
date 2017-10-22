@@ -99,6 +99,25 @@
     .form .main-panel {
             width: calc(100% - 25%);
     }
+    .home .vertical-center {
+      height:calc(100% - 70px);
+      width:100%;
+      text-align: center; /* align the inline(-block) elements horizontally */
+    }
+
+    .home .vertical-center:before { /* create a full-height inline block pseudo=element */
+      content: ' ';
+      display: inline-block;
+      vertical-align: middle; /* vertical alignment of the inline element */
+      height: 100%;
+    }
+
+    .home .vertical-center > .container-landing {
+      max-width: 100%;
+      display: inline-block;
+      vertical-align: middle;  /* vertical alignment of the inline element */
+    }
+
 }
 
 /*          Changes for small display      */
@@ -111,6 +130,9 @@
     .main-panel,
     .form .main-panel{
         width: 100%;
+        height: min-content;
+        max-height: min-content;
+        min-height: min-content;
     }
     .navbar-transparent{
         padding-top: 15px;
@@ -417,6 +439,21 @@
     }
     .pagination-centered{
         padding: 0;
+    }
+    .site-header{
+        position: relative;
+        overflow: hidden;
+        height: 60px;
+        border-bottom: 1px solid #dadada;
+        .title-area{
+                background: url(/suscriptores/wp-content/themes/actualizaclientes/img/logo-centro-corona-mobile.svg) no-repeat center center;
+                width: 100%;
+                height: 70px;
+                z-index: 1;
+                height: 60px;
+                border-bottom: 1px solid #dadada;
+        }
+        
     }
 }
 
